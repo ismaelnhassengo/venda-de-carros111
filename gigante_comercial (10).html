@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gigante Comercial - Veículos & Refrigeração</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#1a4fd8;--blue-dark:#1240b0;--blue-deeper:#0a2d8f;--blue-light:#e8f0fe;--blue-mid:#3b6ff0;--blue-accent:#4f86f7;
+  --white:#ffffff;--gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;
+  --gray-400:#94a3b8;--gray-500:#64748b;--gray-600:#475569;--gray-800:#1e293b;--gray-900:#0f172a;
+  --green:#16a34a;--red:#dc2626;--amber:#d97706;
+  --shadow:0 2px 16px rgba(26,79,216,0.08);--shadow-lg:0 8px 32px rgba(26,79,216,0.14);
+  --radius:10px;--radius-lg:16px;--radius-xl:24px;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--gray-50);color:var(--gray-800);line-height:1.6}
+
+/* NAV */
+nav{background:var(--blue-deeper);border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(10,45,143,0.4)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.logo-img{width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:var(--white);overflow:hidden;flex-shrink:0}
+.logo-img img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.logo-text{display:flex;flex-direction:column;line-height:1.15}
+.logo-name{font-size:1.1rem;font-weight:800;color:var(--white);letter-spacing:-0.3px}
+.logo-sub{font-size:0.65rem;color:rgba(255,255,255,0.55);font-weight:500;letter-spacing:1px;text-transform:uppercase}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-btn{background:none;border:none;padding:8px 16px;border-radius:8px;font-family:inherit;font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.72);cursor:pointer;transition:all .2s}
+.nav-btn:hover,.nav-btn.active{background:rgba(255,255,255,0.12);color:var(--white)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{width:22px;height:2px;background:var(--white);border-radius:2px;transition:.3s}
+
+/* PAGES */
+.page{display:none;min-height:calc(100vh - 68px)}
+.page.active{display:block}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,rgba(10,45,143,0.72) 0%,rgba(18,64,176,0.65) 40%,rgba(26,79,216,0.60) 80%,rgba(79,134,247,0.65) 100%),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat;color:var(--white);position:relative;overflow:hidden}
+.hero-top{padding:64px 20px 52px;text-align:center;position:relative;z-index:2}
+.hero-logo-area{margin-bottom:28px}
+.hero-logo-box{width:88px;height:88px;border-radius:20px;background:rgba(255,255,255,0.14);border:2px solid rgba(255,255,255,0.28);display:inline-flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;color:var(--white);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.18)}
+.hero-logo-box img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+.hero-logo-hint{font-size:0.75rem;opacity:.55;margin-top:8px;font-weight:500;font-style:italic}
+.hero h1{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;margin-bottom:12px;line-height:1.2;letter-spacing:-0.5px}
+.hero p{font-size:1.02rem;opacity:.82;max-width:460px;margin:0 auto 44px;line-height:1.75}
+.hero-cards{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.hero-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.16);border-radius:var(--radius-xl);padding:28px 22px;width:288px;cursor:pointer;transition:all .3s;text-align:center}
+.hero-card:hover{background:rgba(255,255,255,0.18);transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.22)}
+.hero-card-icon{width:50px;height:50px;border-radius:14px;background:rgba(255,255,255,0.16);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:1.5rem}
+.hero-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.hero-card p{font-size:0.83rem;opacity:.73;line-height:1.6}
+.hero-card-arrow{margin-top:18px;display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:0.75rem;opacity:.7;font-weight:700;letter-spacing:1px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:7px 16px;border-radius:20px;transition:.2s}
+.hero-card:hover .hero-card-arrow{opacity:1;background:rgba(255,255,255,0.22)}
+.hero-bottom-bar{background:rgba(0,0,0,0.18);border-top:1px solid rgba(255,255,255,0.07);padding:28px 20px}
+.hero-stats{display:flex;justify-content:center;gap:80px;flex-wrap:wrap;max-width:700px;margin:0 auto}
+.hero-stat{text-align:center}
+.hero-stat-num{font-size:1.8rem;font-weight:800;color:var(--white);display:block}
+.hero-stat-label{font-size:0.72rem;opacity:.55;font-weight:600;text-transform:uppercase;letter-spacing:.8px;display:block;margin-top:2px}
+
+/* HERO ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+.hero-anim-logo{animation:fadeIn .7s ease both}
+.hero-anim-h1{animation:fadeUp .7s ease .15s both}
+.hero-anim-p{animation:fadeUp .7s ease .3s both}
+.hero-anim-card-1{animation:fadeUp .6s ease .4s both}
+.hero-anim-card-2{animation:fadeUp .6s ease .55s both}
+.hero-anim-card-3{animation:fadeUp .6s ease .7s both}
+.hero-anim-stats{animation:fadeIn .8s ease .85s both}
+.hero-replay .hero-anim-logo,.hero-replay .hero-anim-h1,.hero-replay .hero-anim-p,
+.hero-replay .hero-anim-card-1,.hero-replay .hero-anim-card-2,.hero-replay .hero-anim-card-3,
+.hero-replay .hero-anim-stats{animation:none}
+.page-header{background:linear-gradient(135deg,var(--blue-deeper),var(--blue));padding:36px 20px;color:white}
+.page-header-inner{max-width:1200px;margin:0 auto}
+.page-header h2{font-size:1.75rem;font-weight:800;margin-bottom:4px}
+.page-header p{opacity:.75;font-size:0.93rem}
+
+/* SECTION */
+.section-wrap{max-width:1200px;margin:0 auto;padding:40px 20px}
+.section-title{font-size:1.7rem;font-weight:800;color:var(--gray-900);margin-bottom:6px;letter-spacing:-0.3px}
+.section-sub{color:var(--gray-500);margin-bottom:32px;font-size:0.95rem}
+.back-btn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);padding:8px 18px;border-radius:8px;font-family:inherit;font-size:0.85rem;font-weight:600;cursor:pointer;color:rgba(255,255,255,0.85);margin-bottom:18px;transition:all .2s}
+.back-btn:hover{background:rgba(255,255,255,0.2);color:white}
+.back-btn-light{background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-600);box-shadow:var(--shadow)}
+.back-btn-light:hover{border-color:var(--blue);color:var(--blue);background:var(--white)}
+
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:22px}
+
+/* CAR CARD */
+.car-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:all .3s;cursor:pointer;border:1px solid var(--gray-100)}
+.car-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(26,79,216,0.15)}
+.car-card-img{width:100%;height:260px;background:linear-gradient(135deg,#dce8ff,#e8f0fe);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.car-card-img img{width:100%;height:100%;object-fit:contain;background:white}
+.car-card-badge{position:absolute;top:12px;right:12px;padding:4px 12px;border-radius:20px;font-size:0.72rem;font-weight:700}
+.car-card-body{padding:14px 16px}
+.car-card-title{font-size:1.05rem;font-weight:700;color:var(--gray-900);margin-bottom:2px}
+.car-card-year{font-size:0.8rem;color:var(--gray-400);margin-bottom:8px;font-weight:500}
+.car-price{font-size:1.3rem;font-weight:800;color:var(--blue);margin-bottom:10px;letter-spacing:-0.5px}
+.car-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.tag{background:var(--blue-light);color:var(--blue);font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:20px}
+.tag-gray{background:var(--gray-100);color:var(--gray-600)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-family:inherit;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all .2s;border:none;text-decoration:none}
+.btn-blue{background:var(--blue);color:var(--white)}
+.btn-blue:hover{background:var(--blue-dark)}
+.btn-outline{background:var(--white);color:var(--blue);border:1.5px solid var(--blue)}
+.btn-outline:hover{background:var(--blue-light)}
+.btn-sm{padding:8px 16px;font-size:0.82rem}
+.btn-full{width:100%;justify-content:center}
+
+/* CAR DETAIL */
+#page-car-detail .gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+#page-car-detail .gallery-main{grid-column:1/3;border-radius:var(--radius-lg);overflow:hidden;height:340px;background:linear-gradient(135deg,#dce8ff,#e8f0fe);display:flex;align-items:center;justify-content:center;font-size:6rem;color:var(--gray-400)}
+#page-car-detail .gallery-main img{width:100%;height:100%;object-fit:cover}
+#page-car-detail .gallery-thumb{border-radius:var(--radius);overflow:hidden;height:120px;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-size:2.5rem;cursor:pointer;border:2.5px solid transparent;transition:.2s}
+#page-car-detail .gallery-thumb:hover,.gallery-thumb.active{border-color:var(--blue)}
+#page-car-detail .gallery-thumb img{width:100%;height:100%;object-fit:cover}
+.car-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:768px){.car-detail-grid{grid-template-columns:1fr}#page-car-detail .gallery{grid-template-columns:1fr}#page-car-detail .gallery-main{grid-column:1;height:240px}}
+.car-detail-table{width:100%;border-collapse:collapse}
+.car-detail-table tr{border-bottom:1px solid var(--gray-100)}
+.car-detail-table td{padding:11px 8px;font-size:0.9rem}
+.car-detail-table td:first-child{color:var(--gray-400);font-weight:700;width:42%;font-size:0.78rem;text-transform:uppercase;letter-spacing:.4px}
+.car-detail-table td:last-child{color:var(--gray-900);font-weight:700}
+.contact-box{background:linear-gradient(135deg,#e8f0fe,#dce8ff);border-radius:var(--radius-lg);padding:26px;margin-top:4px;border:1px solid rgba(26,79,216,0.1)}
+.contact-box h4{font-size:1.05rem;font-weight:800;color:var(--blue-darker,#0a2d8f);margin-bottom:6px}
+.contact-box p{font-size:0.84rem;color:var(--blue-dark);opacity:.7;margin-bottom:18px}
+
+/* PRODUCTS */
+.prod-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:all .3s;border:1px solid var(--gray-100)}
+.prod-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.prod-card-img{width:100%;height:240px;background:linear-gradient(135deg,#e8f0fe,#dce8ff);display:flex;align-items:center;justify-content:center;font-size:3.5rem;overflow:hidden}
+.prod-card-img img{width:100%;height:100%;object-fit:contain;background:white}
+.prod-card-body{padding:14px 16px}
+.prod-card-cat{font-size:0.7rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.prod-card-name{font-size:0.97rem;font-weight:700;color:var(--gray-900);margin-bottom:4px}
+.prod-card-desc{font-size:0.82rem;color:var(--gray-500);margin-bottom:10px;line-height:1.5}
+.prod-price{font-size:1.2rem;font-weight:800;color:var(--blue);margin-bottom:12px;letter-spacing:-0.3px}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px;margin-bottom:44px}
+.service-card{background:var(--white);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow);border-top:4px solid var(--blue);transition:.3s}
+.service-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.service-icon{width:52px;height:52px;border-radius:14px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--blue)}
+.service-card h3{font-size:1rem;font-weight:700;color:var(--gray-900);margin-bottom:7px}
+.service-card p{font-size:0.84rem;color:var(--gray-500);line-height:1.6}
+
+/* FORM */
+.form-card{background:var(--white);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow);max-width:620px;margin:0 auto;border:1px solid var(--gray-100)}
+.form-title{font-size:1.35rem;font-weight:800;color:var(--gray-900);margin-bottom:6px}
+.form-sub{color:var(--gray-500);font-size:0.88rem;margin-bottom:26px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:0.75rem;font-weight:700;color:var(--gray-500);margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);font-family:inherit;font-size:0.92rem;color:var(--gray-800);transition:.2s;outline:none;background:var(--white)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,79,216,0.08)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.form-row{grid-template-columns:1fr}}
+.form-success{background:#dcfce7;border:1px solid #86efac;border-radius:var(--radius);padding:14px;color:#166534;font-size:0.9rem;margin-top:14px;display:none;font-weight:600}
+
+/* BUTTONS */
+.wa-btn{background:#00a651;display:inline-flex;align-items:center;justify-content:center;gap:8px;color:white;border-radius:var(--radius);padding:12px 20px;font-weight:700;font-size:0.9rem;cursor:pointer;transition:.2s;text-decoration:none;border:none;font-family:inherit;width:100%}
+.wa-btn:hover{background:#008a44}
+.call-btn{background:var(--white);display:inline-flex;align-items:center;justify-content:center;gap:8px;color:var(--blue);border-radius:var(--radius);padding:12px 20px;font-weight:700;font-size:0.9rem;cursor:pointer;transition:.2s;text-decoration:none;border:1.5px solid var(--blue);width:100%;margin-top:10px;font-family:inherit}
+.call-btn:hover{background:var(--blue-light)}
+
+/* REVIEWS */
+.reviews-section{background:var(--blue-deeper);padding:56px 20px}
+.reviews-section .section-title{color:var(--white)}
+.reviews-section .section-sub{color:rgba(255,255,255,0.55)}
+.reviews-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.review-card{background:rgba(255,255,255,0.07);border-radius:var(--radius-lg);padding:22px;border:1px solid rgba(255,255,255,0.1)}
+.review-stars{color:#fbbf24;font-size:1rem;margin-bottom:10px;letter-spacing:2px}
+.review-text{font-size:0.87rem;color:rgba(255,255,255,0.78);margin-bottom:14px;font-style:italic;line-height:1.7}
+.review-author{font-weight:700;font-size:0.9rem;color:var(--white)}
+.review-role{font-size:0.76rem;color:rgba(255,255,255,0.45);margin-top:2px}
+
+/* LOCATION */
+.location-section{background:var(--gray-50);padding:28px 20px;border-top:1px solid var(--gray-100)}
+.location-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+@media(max-width:768px){.location-inner{grid-template-columns:1fr}}
+.location-map{background:var(--gray-100);border-radius:var(--radius-lg);height:220px;overflow:hidden;box-shadow:var(--shadow)}
+.location-map iframe{width:100%;height:100%;border:none}
+.location-info-title{font-size:1.2rem;font-weight:800;color:var(--gray-900);margin-bottom:14px}
+.location-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;font-size:0.9rem;color:var(--gray-700)}
+.loc-icon-wrap{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.location-row a{color:var(--blue);font-weight:600;text-decoration:none}
+.location-row a:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{background:var(--gray-900);color:rgba(255,255,255,0.45);padding:44px 20px 24px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px;margin-bottom:36px}
+@media(max-width:768px){.footer-top{grid-template-columns:1fr}}
+.footer-col h4{color:var(--white);font-size:0.82rem;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.8px}
+.footer-col p{font-size:0.84rem;line-height:1.7;margin-bottom:6px}
+.footer-col a{font-size:0.84rem;color:rgba(255,255,255,0.45);display:block;margin-bottom:9px;text-decoration:none;transition:.2s;cursor:pointer}
+.footer-col a:hover{color:rgba(255,255,255,0.9)}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,0.07);margin-bottom:20px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:0.8rem}
+.footer-bottom strong{color:var(--white)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:0.8rem;color:rgba(255,255,255,0.35);text-decoration:none;cursor:pointer;transition:.2s}
+.footer-links a:hover{color:rgba(255,255,255,0.8)}
+
+/* IMPORT SECTION */
+.import-section{background:var(--gray-50);padding:56px 20px;border-top:1px solid var(--gray-100)}
+.import-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:768px){.import-inner{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-section{background:var(--white);padding:56px 20px;border-top:1px solid var(--gray-100)}
+.faq-inner{max-width:800px;margin:0 auto}
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.faq-item{border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden;transition:.2s}
+.faq-item.open{border-color:var(--blue)}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;gap:12px;user-select:none}
+.faq-question:hover{background:var(--gray-50)}
+.faq-item.open .faq-question{background:var(--blue-light)}
+.faq-q-text{font-size:0.97rem;font-weight:700;color:var(--gray-900);flex:1}
+.faq-item.open .faq-q-text{color:var(--blue-dark)}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.3s;color:var(--gray-500)}
+.faq-item.open .faq-icon{background:var(--blue);color:white;transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s ease}
+.faq-item.open .faq-answer{max-height:300px}
+.faq-answer-inner{padding:0 20px 18px;font-size:0.9rem;color:var(--gray-600);line-height:1.75;border-top:1px solid var(--blue-light)}
+
+/* LEGAL */
+.legal-wrap{max-width:780px;margin:0 auto;padding:48px 20px}
+.legal-wrap h2{font-size:1.55rem;font-weight:800;color:var(--gray-900);margin-bottom:6px}
+.legal-date{font-size:0.82rem;color:var(--gray-400);margin-bottom:32px;display:block}
+.legal-wrap h3{font-size:1.05rem;font-weight:700;color:var(--blue-dark);margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--gray-100)}
+.legal-wrap p,.legal-wrap li{font-size:0.92rem;color:var(--gray-600);line-height:1.8;margin-bottom:8px}
+.legal-wrap ul{padding-left:20px;margin-bottom:10px}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:500;display:none;align-items:center;justify-content:center;flex-direction:column}
+.lightbox.open{display:flex}
+.lightbox-img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:8px;user-select:none}
+.lightbox-emoji{font-size:8rem}
+.lightbox-close{position:absolute;top:16px;right:20px;background:rgba(255,255,255,0.1);border:none;color:white;font-size:1.6rem;cursor:pointer;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s}
+.lightbox-close:hover{background:rgba(255,255,255,0.25)}
+.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:white;font-size:1.4rem;cursor:pointer;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s}
+.lightbox-arrow:hover{background:rgba(255,255,255,0.28)}
+.lightbox-prev{left:16px}
+.lightbox-next{right:16px}
+.lightbox-counter{color:rgba(255,255,255,0.6);font-size:0.85rem;margin-top:14px;font-weight:600}
+.lightbox-caption{color:rgba(255,255,255,0.8);font-size:0.9rem;margin-top:6px}
+
+/* GALLERY ARROWS */
+.gallery-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:12px}
+.gallery-arrow-btn{background:var(--blue);border:none;color:white;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;flex-shrink:0}
+.gallery-arrow-btn:hover{background:var(--blue-dark)}
+.gallery-arrow-btn:disabled{background:var(--gray-200);cursor:not-allowed}
+.gallery-open-btn{background:var(--gray-100);border:none;color:var(--gray-600);padding:8px 14px;border-radius:8px;font-family:inherit;font-size:0.82rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:.2s}
+.gallery-open-btn:hover{background:var(--blue-light);color:var(--blue)}
+
+/* FOTO PREVIEW ADMIN */
+.foto-upload-area{border:2px dashed var(--gray-200);border-radius:var(--radius);padding:16px;margin-bottom:8px;transition:.2s}
+.foto-upload-area:hover{border-color:var(--blue)}
+.foto-preview-grid{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.foto-preview-item{width:70px;height:55px;border-radius:8px;overflow:hidden;border:2px solid var(--gray-200);position:relative;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.foto-preview-item img{width:100%;height:100%;object-fit:cover}
+.foto-preview-item .remove-foto{position:absolute;top:2px;right:2px;background:rgba(220,38,38,0.85);color:white;border:none;border-radius:50%;width:18px;height:18px;font-size:0.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+.admin-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.admin-tab{background:var(--gray-100);border:none;padding:9px 18px;border-radius:8px;font-family:inherit;font-size:0.86rem;font-weight:700;cursor:pointer;color:var(--gray-500);transition:.2s}
+.admin-tab.active{background:var(--blue);color:var(--white)}
+.admin-panel{display:none}
+.admin-panel.active{display:block}
+.admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px;flex-wrap:wrap}
+.data-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.data-table th{background:var(--blue-deeper);color:rgba(255,255,255,0.82);padding:13px 16px;text-align:left;font-size:0.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.data-table td{padding:12px 16px;font-size:0.9rem;border-bottom:1px solid var(--gray-100);color:var(--gray-800)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:var(--gray-50)}
+.tbl-actions{display:flex;gap:6px}
+.btn-danger{background:#fee2e2;color:var(--red);border:none;padding:5px 12px;border-radius:6px;cursor:pointer;font-size:0.78rem;font-weight:700;font-family:inherit;transition:.2s}
+.btn-danger:hover{background:var(--red);color:var(--white)}
+.btn-edit{background:var(--blue-light);color:var(--blue);border:none;padding:5px 12px;border-radius:6px;cursor:pointer;font-size:0.78rem;font-weight:700;font-family:inherit;transition:.2s}
+.btn-edit:hover{background:var(--blue);color:var(--white)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;padding:20px;display:none}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:var(--radius-xl);padding:32px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto}
+.modal h3{font-size:1.15rem;font-weight:800;margin-bottom:20px;color:var(--gray-900)}
+.modal-close{float:right;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--gray-400);margin-top:-4px}
+.filter-bar{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.filter-bar input,.filter-bar select{padding:9px 14px;border:1.5px solid var(--gray-200);border-radius:var(--radius);font-family:inherit;font-size:0.9rem;outline:none;transition:.2s;background:var(--white)}
+.filter-bar input:focus,.filter-bar select:focus{border-color:var(--blue)}
+.filter-bar input{flex:1;min-width:160px}
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px;margin-bottom:28px}
+.stat-card{background:var(--white);border-radius:var(--radius-lg);padding:18px 20px;box-shadow:var(--shadow);text-align:center;border-left:4px solid var(--blue)}
+.stat-num{font-size:2rem;font-weight:800;color:var(--blue)}
+.stat-label{font-size:0.78rem;color:var(--gray-500);margin-top:2px;font-weight:600}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:0.72rem;font-weight:700}
+.badge-green{background:#dcfce7;color:#166534}
+.badge-amber{background:#fef9c3;color:#854d0e}
+.badge-blue{background:var(--blue-light);color:var(--blue-dark)}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--blue-deeper);color:var(--white);padding:13px 22px;border-radius:var(--radius);font-size:0.88rem;font-weight:600;z-index:300;transform:translateY(80px);opacity:0;transition:.3s;max-width:320px;box-shadow:var(--shadow-lg)}
+.toast.show{transform:translateY(0);opacity:1}
+
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:68px;left:0;right:0;background:var(--blue-deeper);flex-direction:column;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,0.3)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .hero-cards{flex-direction:column;align-items:center}
+  .hero-card{width:100%;max-width:340px}
+  .cards-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">
+      <div class="logo-img" id="navLogoImg">G</div>
+      <div class="logo-text">
+        <span class="logo-name">Gigante Comercial</span>
+        <span class="logo-sub">Veículos & Refrigeração</span>
+      </div>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <button class="nav-btn" onclick="showPage('home')">Início</button>
+      <button class="nav-btn" onclick="showPage('cars')">Veículos</button>
+      <button class="nav-btn" onclick="scrollToImport()">Importar Viatura</button>
+      <button class="nav-btn" onclick="showPage('frio')">Serviços</button>
+      <button class="nav-btn" onclick="showPage('loja')">Loja</button>
+      <button class="nav-btn" onclick="showPage('admin')">Admin</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-top" id="heroTop">
+      <div class="hero-logo-area hero-anim-logo">
+        <div class="hero-logo-box" id="heroLogoBox">G</div>
+        <div class="hero-logo-hint">Adicione o logótipo no painel Admin</div>
+      </div>
+      <h1 class="hero-anim-h1">Bem-vindo à <span>Gigante</span> Comercial</h1>
+      <p class="hero-anim-p">A sua referência em Maputo para compra de veículos, importação de viaturas, serviços de refrigeração e equipamentos de qualidade.</p>
+      <div class="hero-cards">
+        <div class="hero-card hero-anim-card-1" onclick="showPage('cars')">
+          <div class="hero-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 01-2-2V9a2 2 0 012-2h1l2-3h10l2 3h1a2 2 0 012 2v6a2 2 0 01-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/><path d="M5 9h14"/></svg>
+          </div>
+          <h3>Veículos Disponíveis</h3>
+          <p>Carros seleccionados com fotos, preços e ficha técnica completa</p>
+          <div class="hero-card-arrow">VER CATÁLOGO <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="hero-card hero-anim-card-2" onclick="scrollToImport()">
+          <div class="hero-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3>Importar Viatura</h3>
+          <p>Importamos o carro que deseja do Japão, Dubai ou Europa por encomenda</p>
+          <div class="hero-card-arrow">FAZER PEDIDO <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="hero-card hero-anim-card-3" onclick="showPage('loja')">
+          <div class="hero-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          </div>
+          <h3>Loja de Refrigeração</h3>
+          <p>Ar-condicionados, acessórios e materiais para venda</p>
+          <div class="hero-card-arrow">VER PRODUTOS <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="hero-card" onclick="showPage('frio')">
+          <div class="hero-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Nossos Serviços</h3>
+          <p>Instalação, reparação e manutenção de ar-condicionado</p>
+          <div class="hero-card-arrow">PEDIR ORÇAMENTO <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom-bar hero-anim-stats">
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num">500+</span><span class="hero-stat-label">Clientes Satisfeitos</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">8+</span><span class="hero-stat-label">Anos de Experiência</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Satisfação Garantida</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-section">
+    <div style="max-width:1200px;margin:0 auto;padding:0 20px 30px">
+      <h2 class="section-title">O que dizem os nossos clientes</h2>
+      <p class="section-sub">Mais de 500 clientes satisfeitos em Maputo</p>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+
+  <!-- IMPORTAÇÃO -->
+  <div class="import-section" id="importSection">
+    <div class="import-inner">
+      <div class="import-info">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);color:var(--blue);padding:6px 14px;border-radius:20px;font-size:0.78rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Serviço Internacional
+        </div>
+        <h2 style="font-size:1.7rem;font-weight:800;color:var(--gray-900);margin-bottom:12px;letter-spacing:-0.3px">Importamos a Viatura<br>que Deseja</h2>
+        <p style="font-size:0.95rem;color:var(--gray-600);line-height:1.75;margin-bottom:20px">Não encontrou o carro que procura no nosso catálogo? Nós importamos directamente do <strong>Japão</strong>, <strong>Dubai</strong> ou <strong>Europa</strong> com total segurança e ao melhor preço.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--gray-700)">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Processo transparente do início ao fim
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--gray-700)">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Tratamos toda a documentação e desalfandegamento
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--gray-700)">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Japão, Dubai, Europa — escolhe a origem
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--gray-700)">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Orçamento gratuito e sem compromisso
+          </div>
+        </div>
+
+        <!-- Contacto rápido -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px">
+          <a href="mailto:geral@gigantecomercial.co.mz" id="imp_email_block" style="background:var(--blue);border-radius:var(--radius-lg);padding:16px;display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;transition:.2s" onmouseover="this.style.background='var(--blue-dark)'" onmouseout="this.style.background='var(--blue)'">
+            <div style="width:40px;height:40px;background:rgba(255,255,255,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;color:white">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span style="font-size:0.78rem;font-weight:700;color:white;text-transform:uppercase;letter-spacing:.5px">Email</span>
+            <span id="imp_email_txt" style="font-size:0.8rem;color:rgba(255,255,255,0.8);margin-top:3px">geral@gigantecomercial.co.mz</span>
+          </a>
+          <a href="tel:+258840000000" id="imp_tel_block" style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:16px;display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;transition:.2s" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--gray-200)'">
+            <div style="width:40px;height:40px;background:var(--blue-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;color:var(--blue)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            </div>
+            <span style="font-size:0.78rem;font-weight:700;color:var(--gray-600);text-transform:uppercase;letter-spacing:.5px">Telefone</span>
+            <span id="imp_tel_txt" style="font-size:0.85rem;color:var(--blue);font-weight:700;margin-top:3px">+258 84 000 0000</span>
+          </a>
+        </div>
+
+        <!-- Escritórios -->
+        <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:18px;margin-top:12px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:0.9rem;font-weight:800;color:var(--gray-900)">Os Nossos Escritórios</span>
+          </div>
+          <div style="border-left:3px solid var(--blue);padding-left:12px;font-size:0.85rem;font-weight:700;color:var(--gray-700)" id="imp_addr_txt">MAPUTO — Av. 24 de Julho</div>
+        </div>
+
+        <!-- Horário -->
+        <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:18px;margin-top:12px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span style="font-size:0.9rem;font-weight:800;color:var(--gray-900)">Horário de Funcionamento</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;font-size:0.85rem;padding-bottom:8px;border-bottom:1px solid var(--gray-100)">
+              <span style="font-weight:700;color:var(--gray-800)">Segunda — Sexta</span>
+              <span style="color:var(--blue);font-weight:700" id="imp_hora_semana">08:00 — 17:00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:0.85rem;padding-bottom:8px;border-bottom:1px solid var(--gray-100)">
+              <span style="font-weight:700;color:var(--gray-800)">Sábado</span>
+              <span style="color:var(--blue);font-weight:700">08:00 — 12:00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:0.85rem">
+              <span style="font-weight:700;color:var(--gray-800)">Domingo</span>
+              <span style="color:var(--red);font-weight:700">Fechado</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-card" style="margin:0">
+        <div class="form-title">Pedir Importação de Viatura</div>
+        <div class="form-sub">Preencha o formulário e entramos em contacto em 24 horas</div>
+        <div class="form-row">
+          <div class="form-group"><label>Nome completo</label><input type="text" id="imp_nome" placeholder="O seu nome"></div>
+          <div class="form-group"><label>Telefone / WhatsApp</label><input type="tel" id="imp_tel" placeholder="+258 84 000 0000"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" id="imp_email" placeholder="seuemail@exemplo.com"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Marca do veículo</label><input type="text" id="imp_marca" placeholder="Ex: Toyota, BMW, Honda"></div>
+          <div class="form-group"><label>Modelo</label><input type="text" id="imp_modelo" placeholder="Ex: Corolla, X5, Civic"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Ano preferido</label><input type="text" id="imp_ano" placeholder="Ex: 2020 ou 2019-2021"></div>
+          <div class="form-group"><label>Origem preferida</label>
+            <select id="imp_origem">
+              <option value="">Qualquer origem</option>
+              <option>Japão</option>
+              <option>Dubai</option>
+              <option>Europa</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Orçamento disponível (MT)</label><input type="text" id="imp_orcamento" placeholder="Ex: 500.000 MT"></div>
+        <div class="form-group"><label>Informações adicionais</label><textarea id="imp_obs" placeholder="Cor preferida, câmbio, combustível, outras preferências..." style="min-height:80px"></textarea></div>
+        <button class="btn btn-blue btn-full" onclick="submitImport()" style="padding:13px;font-size:0.95rem;gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Enviar pedido de importação
+        </button>
+        <div class="form-success" id="importSuccess">Pedido enviado! Entraremos em contacto em menos de 24 horas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="faq-inner">
+      <h2 class="section-title" style="color:var(--gray-900);text-align:center;font-size:2.1rem">Perguntas Frequentes</h2>
+      <p class="section-sub" style="text-align:center">Tudo o que precisa de saber antes de nos contactar</p>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </div>
+
+  <div class="location-section">
+    <div class="location-inner">
+      <div>
+        <h3 class="location-info-title">Contactos</h3>
+        <div id="locationInfo"></div>
+      </div>
+      <div class="location-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238606.0!2d32.5!3d-25.96!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69b7e2b9d5c1f%3A0x0!2sMaputo!5e0!3m2!1spt!2smz!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARS PAGE -->
+<div id="page-cars" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <button class="back-btn" onclick="showPage('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Início</button>
+      <h2>Veículos Disponíveis</h2>
+      <p>Clique num veículo para ver a galeria completa e detalhes técnicos</p>
+    </div>
+  </div>
+  <div class="section-wrap">
+    <div class="filter-bar">
+      <input type="text" id="carSearch" placeholder="Pesquisar por modelo, motor, cor..." oninput="renderCars()">
+      <select id="carFilter" onchange="renderCars()">
+        <option value="">Todos os estados</option>
+        <option value="Disponível">Disponível</option>
+        <option value="Reservado">Reservado</option>
+      </select>
+    </div>
+    <div class="cards-grid" id="carsGrid"></div>
+  </div>
+</div>
+
+<!-- CAR DETAIL -->
+<div id="page-car-detail" class="page">
+  <div class="section-wrap">
+    <button class="back-btn back-btn-light" onclick="showPage('cars')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar ao catálogo</button>
+    <div id="carDetailContent"></div>
+  </div>
+</div>
+
+<!-- FRIO PAGE -->
+<div id="page-frio" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <button class="back-btn" onclick="showPage('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Início</button>
+      <h2>Serviços de Refrigeração</h2>
+      <p>Reparação, instalação e manutenção com qualidade garantida em Maputo</p>
+    </div>
+  </div>
+  <div class="section-wrap">
+    <div class="services-grid" id="servicesGrid"></div>
+    <div class="form-card">
+      <div class="form-title">Solicitar Orçamento ou Agendar Serviço</div>
+      <div class="form-sub">Preencha o formulário e entraremos em contacto em menos de 2 horas</div>
+      <div class="form-group"><label>Nome completo</label><input type="text" id="f_nome" placeholder="O seu nome completo"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Telefone / WhatsApp</label><input type="tel" id="f_tel" placeholder="+258 84 000 0000"></div>
+        <div class="form-group"><label>Tipo de serviço</label>
+          <select id="f_servico">
+            <option value="">Selecione o serviço...</option>
+            <option>Reparação de Ar-Condicionado</option>
+            <option>Instalação de Ar-Condicionado</option>
+            <option>Manutenção preventiva</option>
+            <option>Recarga de gás</option>
+            <option>Orçamento gratuito</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Endereço / Bairro</label><input type="text" id="f_end" placeholder="Ex: Polana, Sommerschield, Maputo"></div>
+      <div class="form-group"><label>Descreva o problema</label><textarea id="f_desc" placeholder="Ex: O ar-condicionado não arrefece, faz barulho estranho..."></textarea></div>
+      <button class="btn btn-blue btn-full" onclick="submitForm()" style="padding:13px 20px;font-size:0.95rem;justify-content:center;gap:8px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Enviar Mensagem
+      </button>
+      <div class="form-success" id="formSuccess">Pedido enviado com sucesso! Entraremos em contacto em breve.</div>
+    </div>
+  </div>
+</div>
+
+<!-- LOJA PAGE -->
+<div id="page-loja" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <button class="back-btn" onclick="showPage('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Início</button>
+      <h2>Loja de Refrigeração</h2>
+      <p>Ar-condicionados, acessórios e equipamentos de qualidade</p>
+    </div>
+  </div>
+  <div class="section-wrap">
+    <div class="filter-bar">
+      <input type="text" id="prodSearch" placeholder="Pesquisar produto..." oninput="renderProducts()">
+      <select id="prodCat" onchange="renderProducts()">
+        <option value="">Todas as categorias</option>
+        <option>Ar-Condicionado</option>
+        <option>Acessórios</option>
+        <option>Materiais</option>
+        <option>Equipamentos</option>
+      </select>
+    </div>
+    <div class="cards-grid" id="prodsGrid"></div>
+  </div>
+</div>
+
+<!-- ADMIN PAGE -->
+<div id="page-admin" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h2>Painel de Administração</h2>
+      <p>Gerencie veículos, produtos, serviços e informações da empresa</p>
+    </div>
+  </div>
+  <div class="section-wrap">
+    <div class="stat-cards" id="statCards"></div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchAdminTab('carros')">Veículos</button>
+      <button class="admin-tab" onclick="switchAdminTab('produtos')">Produtos</button>
+      <button class="admin-tab" onclick="switchAdminTab('servicos')">Serviços</button>
+      <button class="admin-tab" onclick="switchAdminTab('avaliacoes')">Avaliações</button>
+      <button class="admin-tab" onclick="switchAdminTab('empresa')">Empresa</button>
+    </div>
+    <div class="admin-panel active" id="admin-carros">
+      <div class="admin-header"><h3 style="font-weight:700">Veículos em catálogo</h3><button class="btn btn-blue btn-sm" onclick="openModal('car')">+ Adicionar veículo</button></div>
+      <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Foto</th><th>Modelo</th><th>Ano</th><th>Preço</th><th>Estado</th><th>Acções</th></tr></thead><tbody id="carsTableBody"></tbody></table></div>
+    </div>
+    <div class="admin-panel" id="admin-produtos">
+      <div class="admin-header"><h3 style="font-weight:700">Produtos na loja</h3><button class="btn btn-blue btn-sm" onclick="openModal('prod')">+ Adicionar produto</button></div>
+      <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Nome</th><th>Categoria</th><th>Preço</th><th>Acções</th></tr></thead><tbody id="prodsTableBody"></tbody></table></div>
+    </div>
+    <div class="admin-panel" id="admin-servicos">
+      <div class="admin-header"><h3 style="font-weight:700">Serviços oferecidos</h3><button class="btn btn-blue btn-sm" onclick="openModal('serv')">+ Adicionar serviço</button></div>
+      <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Ícone</th><th>Serviço</th><th>Descrição</th><th>Acções</th></tr></thead><tbody id="servsTableBody"></tbody></table></div>
+    </div>
+    <div class="admin-panel" id="admin-avaliacoes">
+      <div class="admin-header"><h3 style="font-weight:700">Avaliações de clientes</h3><button class="btn btn-blue btn-sm" onclick="openModal('review')">+ Adicionar avaliação</button></div>
+      <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Cliente</th><th>Avaliação</th><th>Estrelas</th><th>Acções</th></tr></thead><tbody id="reviewsTableBody"></tbody></table></div>
+    </div>
+    <div class="admin-panel" id="admin-empresa">
+      <div class="form-card" style="max-width:100%;margin:0">
+        <div class="form-title">Informações da Empresa</div>
+        <div class="form-sub">Actualize os dados de contacto, logótipo e redes sociais</div>
+        <div class="form-group"><label>Nome da empresa</label><input type="text" id="e_nome"></div>
+        <div class="form-group"><label>URL do Logótipo (link de imagem)</label><input type="url" id="e_logo" placeholder="https://... cole aqui o link da imagem do logótipo" oninput="previewLogo()"></div>
+        <div id="logoPreview" style="margin-bottom:18px;display:none"><img id="logoImg" src="" style="height:60px;border-radius:10px;border:1px solid var(--gray-200)"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Telefone</label><input type="tel" id="e_tel"></div>
+          <div class="form-group"><label>WhatsApp (só números, ex: 258840000000)</label><input type="tel" id="e_wa"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Instagram</label><input type="text" id="e_inst" placeholder="@gigante_comercial"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="e_email"></div>
+        </div>
+        <div class="form-group"><label>Endereço</label><input type="text" id="e_end"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Hora de abertura</label><input type="text" id="e_hora1" placeholder="08:00"></div>
+          <div class="form-group"><label>Hora de fecho</label><input type="text" id="e_hora2" placeholder="17:00"></div>
+        </div>
+        <button class="btn btn-blue" onclick="saveEmpresa()">Guardar alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TERMOS E CONDIÇÕES -->
+<div id="page-termos" class="page">
+  <div class="legal-wrap">
+    <button class="back-btn back-btn-light" onclick="showPage('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar ao início</button>
+    <h2>Termos e Condições</h2>
+    <span class="legal-date">Última actualização: Janeiro de 2025</span>
+    <h3>1. Aceitação dos Termos</h3>
+    <p>Ao aceder e utilizar o website da Gigante Comercial, o utilizador aceita integralmente os presentes Termos e Condições. Caso não concorde, deverá cessar a utilização do website.</p>
+    <h3>2. Sobre a Empresa</h3>
+    <p>A Gigante Comercial é uma empresa sediada em Maputo, Moçambique, que actua nas áreas de comercialização de veículos, prestação de serviços de refrigeração e ar-condicionado, e venda de equipamentos de refrigeração.</p>
+    <h3>3. Veículos e Produtos</h3>
+    <ul>
+      <li>Todos os preços estão em Meticais (MT) e podem ser actualizados sem aviso prévio.</li>
+      <li>As fotografias são ilustrativas e podem não corresponder exactamente ao veículo apresentado.</li>
+      <li>A disponibilidade dos veículos e produtos está sujeita a confirmação no momento da compra.</li>
+      <li>A Gigante Comercial não se responsabiliza por erros tipográficos nos preços ou descrições.</li>
+    </ul>
+    <h3>4. Processo de Compra</h3>
+    <p>O contacto expresso através do website não constitui um contrato vinculativo. O contrato de compra e venda apenas se perfaz após assinatura dos documentos legais e pagamento acordado.</p>
+    <h3>5. Serviços de Refrigeração</h3>
+    <p>Os orçamentos são válidos por 30 dias. A Gigante Comercial garante os serviços prestados por 90 dias, cobrindo defeitos de execução, excluindo danos por mau uso ou terceiros.</p>
+    <h3>6. Limitação de Responsabilidade</h3>
+    <p>A Gigante Comercial não será responsável por quaisquer danos resultantes da utilização dos serviços ou produtos, salvo nos casos previstos pela legislação moçambicana aplicável.</p>
+    <h3>7. Lei Aplicável</h3>
+    <p>Os presentes Termos são regidos pela legislação da República de Moçambique. Qualquer litígio será submetido à jurisdição dos tribunais competentes de Maputo.</p>
+  </div>
+</div>
+
+<!-- POLÍTICA DE PRIVACIDADE -->
+<div id="page-privacidade" class="page">
+  <div class="legal-wrap">
+    <button class="back-btn back-btn-light" onclick="showPage('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar ao início</button>
+    <h2>Política de Privacidade</h2>
+    <span class="legal-date">Última actualização: Janeiro de 2025</span>
+    <h3>1. Dados que Recolhemos</h3>
+    <p>Quando utiliza o nosso website ou contacta a Gigante Comercial, podemos recolher: nome completo, número de telefone e WhatsApp, endereço de email, endereço físico ou bairro, e informações sobre o serviço ou produto de interesse.</p>
+    <h3>2. Como Utilizamos os seus Dados</h3>
+    <p>Os dados pessoais recolhidos são utilizados exclusivamente para responder a pedidos de orçamento, agendar e prestar serviços solicitados, enviar confirmações e actualizações sobre os seus pedidos, e melhorar os nossos serviços.</p>
+    <h3>3. Partilha de Dados</h3>
+    <p>A Gigante Comercial não vende nem partilha os seus dados pessoais com terceiros para fins comerciais. Os dados são partilhados apenas com colaboradores internos para prestar o serviço solicitado.</p>
+    <h3>4. Segurança</h3>
+    <p>Adoptamos medidas técnicas adequadas para proteger os seus dados pessoais contra acesso não autorizado, perda ou destruição.</p>
+    <h3>5. Os seus Direitos</h3>
+    <p>Tem o direito de aceder, corrigir ou solicitar a eliminação dos seus dados pessoais. Contacte-nos através do email ou WhatsApp indicados no website.</p>
+    <h3>6. Cookies</h3>
+    <p>Este website não utiliza cookies de rastreamento de terceiros. São utilizados apenas dados técnicos essenciais para o funcionamento do website.</p>
+  </div>
+</div>
+
+<!-- TERMOS DE UTILIZAÇÃO -->
+<div id="page-utilizacao" class="page">
+  <div class="legal-wrap">
+    <button class="back-btn back-btn-light" onclick="showPage('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar ao início</button>
+    <h2>Termos de Utilização</h2>
+    <span class="legal-date">Última actualização: Janeiro de 2025</span>
+    <h3>1. Utilização Permitida</h3>
+    <p>Este website destina-se exclusivamente à consulta de produtos, veículos e serviços da Gigante Comercial, bem como ao contacto com a empresa para fins comerciais legítimos.</p>
+    <h3>2. Utilizações Proibidas</h3>
+    <ul>
+      <li>Reproduzir ou distribuir o conteúdo sem autorização prévia</li>
+      <li>Utilizar o website para fins ilegais ou contrários aos bons costumes</li>
+      <li>Tentar aceder a áreas restritas sem autorização</li>
+      <li>Publicar informações falsas nos formulários de contacto</li>
+      <li>Utilizar sistemas automatizados para extrair dados do website</li>
+    </ul>
+    <h3>3. Propriedade Intelectual</h3>
+    <p>Todo o conteúdo deste website, incluindo textos, imagens, logótipos e design, é propriedade da Gigante Comercial e está protegido por direitos de autor.</p>
+    <h3>4. Disponibilidade</h3>
+    <p>A Gigante Comercial não garante a disponibilidade contínua do website e reserva-se o direito de suspender ou encerrar o website a qualquer momento.</p>
+    <h3>5. Contacto</h3>
+    <p>Para questões relacionadas com estes Termos, contacte-nos através dos meios indicados na página principal do website.</p>
+  </div>
+</div>
+
+<!-- FOOTER GLOBAL -->
+<footer id="globalFooter">
+  <div class="footer-inner">
+    <div class="footer-top" style="grid-template-columns:1fr 1fr 1fr 1fr">
+      <div class="footer-col">
+        <h4>Gigante Comercial</h4>
+        <div style="display:flex;gap:10px;margin-top:4px">
+          <a href="https://wa.me/258840000000" target="_blank" title="WhatsApp" style="width:38px;height:38px;border-radius:9px;background:#25D366;display:inline-flex;align-items:center;justify-content:center;color:white;transition:.2s;text-decoration:none;flex-shrink:0" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.117 1.528 5.845L.057 23.75l6.07-1.447A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.504-5.1-1.38l-.36-.214-3.735.89.94-3.635-.235-.375A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+          <a href="https://instagram.com" target="_blank" title="Instagram" style="width:38px;height:38px;border-radius:9px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:inline-flex;align-items:center;justify-content:center;color:white;transition:.2s;text-decoration:none;flex-shrink:0" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://linkedin.com" target="_blank" title="LinkedIn" style="width:38px;height:38px;border-radius:9px;background:#0A66C2;display:inline-flex;align-items:center;justify-content:center;color:white;transition:.2s;text-decoration:none;flex-shrink:0" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a onclick="showPage('cars')">Veículos Disponíveis</a>
+        <a onclick="scrollToImport()">Importar Viatura</a>
+        <a onclick="showPage('frio')">Serviços de Refrigeração</a>
+        <a onclick="showPage('loja')">Loja de Refrigeração</a>
+        <a onclick="scrollToFaq()">Perguntas Frequentes (FAQ)</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a onclick="showPage('termos')">Termos e Condições</a>
+        <a onclick="showPage('privacidade')">Política de Privacidade</a>
+        <a onclick="showPage('utilizacao')">Termos de Utilização</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contactos</h4>
+        <a id="footerEmail" href="mailto:geral@gigantecomercial.co.mz" style="display:flex;align-items:center;gap:7px;color:#60a5fa;font-weight:600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <span id="footerEmailText">geral@gigantecomercial.co.mz</span></a>
+        <a id="footerAddr" style="display:flex;align-items:flex-start;gap:7px;margin-top:10px;cursor:default;color:#60a5fa;font-weight:600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span id="footerAddrText">Av. 24 de Julho, Maputo</span></a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom" style="justify-content:center;text-align:center">
+      <p><strong>Gigante Comercial</strong> &copy; 2026 — Maputo, Moçambique. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-arrow lightbox-prev" onclick="lightboxNav(-1)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  </button>
+  <div id="lightboxContent" style="display:flex;align-items:center;justify-content:center"></div>
+  <button class="lightbox-arrow lightbox-next" onclick="lightboxNav(1)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modalTitle">Adicionar</h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+let DB={
+  empresa:{nome:"Gigante Comercial",logo:"",tel:"+258 84 000 0000",whatsapp:"258840000000",instagram:"@gigantecomercial",email:"geral@gigantecomercial.co.mz",endereco:"Av. 24 de Julho, Maputo",horaAbertura:"08:00",horaFecho:"17:00"},
+  carros:[
+    {id:1,nome:"Toyota Corolla",ano:2019,preco:"450.000 MT",km:"52.000 km",motor:"1.6L Gasolina",cambio:"Automático",cor:"Branco Pérola",estado:"Disponível",descricao:"Carro em excelente estado, revisão feita, sem histórico de acidentes. Ideal para uso diário e família.",fotos:["🚗","🪑","🔧","🪟"],legendas:["Exterior frontal","Interior","Motor","Lateral"]},
+    {id:2,nome:"Honda CRV",ano:2020,preco:"780.000 MT",km:"38.000 km",motor:"2.0L Híbrido",cambio:"Automático",cor:"Preto Metalizado",estado:"Disponível",descricao:"SUV premium com teto de abrir, sensores de estacionamento e câmara de ré.",fotos:["🚙","🪑","🔧","🌅"],legendas:["Exterior","Interior couro","Motor","Vista traseira"]},
+    {id:3,nome:"Mazda 3",ano:2021,preco:"520.000 MT",km:"21.000 km",motor:"2.0L Gasolina",cambio:"Manual",cor:"Azul Cerúleo",estado:"Reservado",descricao:"Veículo semi-novo, 1 proprietário. Documentação completa.",fotos:["🚗","🪑","🔧","🗺️"],legendas:["Exterior","Bancos","Motor","GPS"]},
+  ],
+  produtos:[
+    {id:1,nome:"Ar-Condicionado Samsung 12000 BTU",categoria:"Ar-Condicionado",preco:"35.000 MT",descricao:"Inverter, eficiência A+++, silencioso. Ideal para quartos e escritórios.",emoji:"❄️"},
+    {id:2,nome:"Ar-Condicionado LG 18000 BTU",categoria:"Ar-Condicionado",preco:"52.000 MT",descricao:"Splits dual inverter, wi-fi integrado, controlo por app móvel.",emoji:"🌬️"},
+    {id:3,nome:"Kit Instalação Completo",categoria:"Acessórios",preco:"4.500 MT",descricao:"Suporte, tubagem de cobre, cabo eléctrico e fixações incluídas.",emoji:"🔧"},
+    {id:4,nome:"Gás Refrigerante R410A",categoria:"Materiais",preco:"3.800 MT",descricao:"Cilindro 11.3kg para recarga de sistemas de refrigeração.",emoji:"🧪"},
+  ],
+  servicos:[
+    {id:1,icon:"wrench",nome:"Reparação de Ar-Condicionado",desc:"Diagnóstico e reparação de qualquer avaria, marca ou modelo."},
+    {id:2,icon:"install",nome:"Instalação Profissional",desc:"Instalação completa com garantia de 1 ano no serviço prestado."},
+    {id:3,icon:"gas",nome:"Recarga de Gás Refrigerante",desc:"Recarga com gases homologados R410A, R32 e R22."},
+    {id:4,icon:"clean",nome:"Limpeza e Manutenção",desc:"Limpeza profunda de filtros, bobinas e drenagem do sistema."},
+    {id:5,icon:"quote",nome:"Orçamento Gratuito",desc:"Visita técnica e orçamento sem compromisso em Maputo."},
+    {id:6,icon:"urgent",nome:"Assistência de Urgência",desc:"Equipa disponível para urgências em menos de 4 horas."},
+  ],
+  avaliacoes:[
+    {id:1,nome:"Armando Sitoe",cargo:"Empresário",texto:"Comprei um carro e o processo foi rápido e sem stress. Recomendo!",estrelas:5},
+    {id:2,nome:"Fátima Machava",cargo:"Directora de Escola",texto:"A equipa de refrigeração veio no mesmo dia. Excelente serviço!",estrelas:5},
+    {id:3,nome:"João Cossa",cargo:"Engenheiro",texto:"Comprei o ar-condicionado e foi instalado em 2 horas. Ótimo preço!",estrelas:4},
+    {id:4,nome:"Esperança Nhaca",cargo:"Médica",texto:"Muito profissionais. Resolveram o problema do meu AC em 30 minutos.",estrelas:5},
+  ],
+  faq:[
+    {id:1,q:"Como posso ver os veículos disponíveis?",r:"Clique em 'Veículos Disponíveis' no menu ou na página inicial. Pode filtrar por estado e pesquisar por modelo, motor ou cor. Ao clicar num veículo vê a galeria de fotos e a ficha técnica completa."},
+    {id:2,q:"Os preços dos veículos são negociáveis?",r:"Sim, os preços apresentados são indicativos. Entre em contacto connosco via WhatsApp ou chamada para negociar o melhor valor para si."},
+    {id:3,q:"Como posso solicitar um orçamento para reparação de ar-condicionado?",r:"Aceda à secção 'Serviços de Refrigeração', preencha o formulário com o seu nome, telefone, tipo de serviço e descrição do problema. A nossa equipa entrará em contacto em menos de 2 horas."},
+    {id:4,q:"Quanto tempo demora a instalação de um ar-condicionado?",r:"A instalação padrão demora entre 2 a 4 horas, dependendo do tipo de equipamento e das condições do local. Fazemos a instalação no mesmo dia em Maputo."},
+    {id:5,q:"Os produtos da loja têm garantia?",r:"Sim, todos os equipamentos de ar-condicionado têm garantia do fabricante. Os serviços de instalação têm garantia de 1 ano na mão de obra prestada pela nossa equipa."},
+    {id:6,q:"Como posso encomendar um produto da loja?",r:"Clique em 'Encomendar via WhatsApp' no produto desejado. Será redirecionado para o WhatsApp com a informação do produto já preenchida. A nossa equipa confirma a disponibilidade e combina a entrega."},
+    {id:7,q:"Fazem entregas fora de Maputo?",r:"Sim, fazemos entregas em todo o país. O custo e prazo de entrega dependem da localização. Contacte-nos para obter mais informações sobre entrega na sua região."},
+    {id:8,q:"Qual é o horário de funcionamento?",r:"Estamos disponíveis de segunda a sábado. Para urgências de refrigeração temos equipa disponível fora do horário normal. Contacte-nos via WhatsApp para confirmar disponibilidade."},
+  ]
+};
+
+let editModal={type:null,id:null};
+
+const waIconSVG=`<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.117 1.528 5.845L.057 23.75l6.07-1.447A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.6-.504-5.1-1.38l-.36-.214-3.735.89.94-3.635-.235-.375A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>`;
+const instIconSVG=`<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`;
+const phoneIconSVG=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>`;
+const pinIconSVG=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+const mailIconSVG=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`;
+
+function renderFoto(f,fullSize=false){
+  if(!f)return fullSize?'<span style="font-size:6rem">🚗</span>':'<span style="font-size:3.5rem">🚗</span>';
+  if(f.startsWith('http'))return`<img src="${f}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">`;
+  return`<span style="font-size:${fullSize?'6rem':'3.5rem'}">${f}</span>`;
+}
+
+function renderCars(){
+  const search=document.getElementById('carSearch').value.toLowerCase();
+  const filter=document.getElementById('carFilter').value;
+  const grid=document.getElementById('carsGrid');
+  let cars=DB.carros.filter(c=>{
+    const ms=c.nome.toLowerCase().includes(search)||c.motor.toLowerCase().includes(search)||c.cor.toLowerCase().includes(search);
+    const mf=!filter||c.estado===filter;
+    return ms&&mf;
+  });
+  if(!cars.length){grid.innerHTML='<p style="color:var(--gray-400);grid-column:1/-1;padding:20px 0">Nenhum veículo encontrado.</p>';return;}
+  grid.innerHTML=cars.map(c=>{
+    const foto=c.fotos&&c.fotos.length?c.fotos[0]:'🚗';
+    const isImg=foto.startsWith('http');
+    const bs=c.estado==='Disponível'?'background:#dcfce7;color:#166534':'background:#fef9c3;color:#854d0e';
+    return`<div class="car-card" onclick="showCarDetail(${c.id})">
+      <div class="car-card-img">
+        ${isImg?`<img src="${foto}" alt="${c.nome}" onerror="this.parentNode.innerHTML='<span style=font-size:4rem>🚗</span>'">`:`<span style="font-size:4rem">${foto}</span>`}
+        <span class="car-card-badge" style="${bs}">${c.estado}</span>
+      </div>
+      <div class="car-card-body">
+        <div class="car-card-title">${c.nome}</div>
+        <div class="car-card-year">${c.ano} &middot; ${c.km}</div>
+        <div class="car-price">${c.preco}</div>
+        <div class="car-tags"><span class="tag">${c.motor}</span><span class="tag tag-gray">${c.cambio}</span></div>
+        <button class="btn btn-blue btn-full btn-sm" style="gap:8px">Ver detalhes <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+let currentGallery=[];
+let currentGalleryIndex=0;
+let lightboxImages=[];
+let lightboxIndex=0;
+
+function openLightbox(images, index, captions){
+  lightboxImages=images;
+  lightboxIndex=index;
+  window._lightboxCaptions=captions||[];
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.addEventListener('keydown', lightboxKeyHandler);
+}
+function updateLightbox(){
+  const f=lightboxImages[lightboxIndex];
+  const isImg=f&&f.startsWith('http');
+  document.getElementById('lightboxContent').innerHTML=isImg?`<img class="lightbox-img" src="${f}" alt="" style="max-width:92vw;max-height:82vh;object-fit:contain;border-radius:8px">`:`<div class="lightbox-emoji">${f||'🚗'}</div>`;
+  document.getElementById('lightboxCounter').textContent=`${lightboxIndex+1} / ${lightboxImages.length}`;
+  document.getElementById('lightboxCaption').textContent=(window._lightboxCaptions&&window._lightboxCaptions[lightboxIndex])||'';
+  document.querySelector('.lightbox-prev').style.display=lightboxImages.length>1?'flex':'none';
+  document.querySelector('.lightbox-next').style.display=lightboxImages.length>1?'flex':'none';
+}
+function lightboxNav(dir){
+  lightboxIndex=(lightboxIndex+dir+lightboxImages.length)%lightboxImages.length;
+  updateLightbox();
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.removeEventListener('keydown',lightboxKeyHandler);
+}
+function closeLightboxOutside(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
+function lightboxKeyHandler(e){
+  if(e.key==='ArrowRight')lightboxNav(1);
+  else if(e.key==='ArrowLeft')lightboxNav(-1);
+  else if(e.key==='Escape')closeLightbox();
+}
+
+function showCarDetail(id){
+  const c=DB.carros.find(x=>x.id===id);
+  if(!c)return;
+  const fotos=c.fotos||['🚗'];
+  const legs=c.legendas||[];
+  const wa=DB.empresa.whatsapp||'258840000000';
+  currentGallery=fotos;
+  currentGalleryIndex=0;
+
+  function fotoEl(f,big=false){
+    const isImg=f&&f.startsWith('http');
+    if(isImg)return`<img src="${f}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">`;
+    return`<span style="font-size:${big?'6rem':'2.5rem'}">${f||'🚗'}</span>`;
+  }
+
+  function buildDetail(){
+    const f=currentGallery[currentGalleryIndex];
+    const hasPrev=currentGalleryIndex>0;
+    const hasNext=currentGalleryIndex<currentGallery.length-1;
+    return`
+    <div class="gallery-nav">
+      <button class="gallery-arrow-btn" onclick="galleryNav(-1)" ${hasPrev?'':'disabled'}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </button>
+      <button class="gallery-open-btn" onclick="openLightbox(currentGallery,currentGalleryIndex,${JSON.stringify(legs)})">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        Ver em ecrã cheio (${currentGallery.length} fotos)
+      </button>
+      <button class="gallery-arrow-btn" onclick="galleryNav(1)" ${hasNext?'':'disabled'}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <div id="galleryMain" onclick="openLightbox(currentGallery,currentGalleryIndex,${JSON.stringify(legs)})" style="cursor:zoom-in;width:100%;height:340px;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(135deg,#dce8ff,#e8f0fe);display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+      ${fotoEl(f,true)}
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:24px">
+      ${currentGallery.map((thumb,i)=>`
+        <div onclick="setGalleryIndex(${i})" style="flex-shrink:0;width:80px;height:60px;border-radius:8px;overflow:hidden;border:2.5px solid ${i===currentGalleryIndex?'var(--blue)':'var(--gray-200)'};cursor:pointer;background:var(--gray-100);display:flex;align-items:center;justify-content:center;transition:.2s">
+          ${fotoEl(thumb)}
+        </div>`).join('')}
+    </div>`;
+  }
+
+  window.galleryNav=function(dir){
+    currentGalleryIndex=Math.max(0,Math.min(currentGallery.length-1,currentGalleryIndex+dir));
+    document.getElementById('galleryWrap').innerHTML=buildDetail();
+  };
+  window.setGalleryIndex=function(i){
+    currentGalleryIndex=i;
+    document.getElementById('galleryWrap').innerHTML=buildDetail();
+  };
+
+  document.getElementById('carDetailContent').innerHTML=`
+    <h2 style="font-size:1.85rem;font-weight:800;color:var(--gray-900);margin-bottom:4px;letter-spacing:-0.5px">${c.nome} <span style="color:var(--blue)">${c.ano}</span></h2>
+    <p style="font-size:1.45rem;font-weight:800;color:var(--blue);margin-bottom:20px;letter-spacing:-0.5px">${c.preco}</p>
+    <div id="galleryWrap">${buildDetail()}</div>
+    <div class="car-detail-grid">
+      <div>
+        <p style="font-size:0.72rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px">Ficha Técnica</p>
+        <table class="car-detail-table">
+          <tr><td>Modelo</td><td>${c.nome}</td></tr>
+          <tr><td>Ano</td><td>${c.ano}</td></tr>
+          <tr><td>Quilometragem</td><td>${c.km}</td></tr>
+          <tr><td>Motor</td><td>${c.motor}</td></tr>
+          <tr><td>Câmbio</td><td>${c.cambio}</td></tr>
+          <tr><td>Cor</td><td>${c.cor}</td></tr>
+          <tr><td>Estado</td><td><span class="badge ${c.estado==='Disponível'?'badge-green':'badge-amber'}">${c.estado}</span></td></tr>
+          <tr><td>Preço</td><td style="color:var(--blue);font-size:1.05rem">${c.preco}</td></tr>
+        </table>
+        <div style="margin-top:16px;padding:16px;background:var(--gray-50);border-radius:var(--radius);font-size:0.88rem;color:var(--gray-600);line-height:1.75;border-left:3px solid var(--blue)">${c.descricao}</div>
+      </div>
+      <div>
+        <div class="contact-box">
+          <h4>Interessado neste veículo?</h4>
+          <p>Fale connosco agora — resposta em minutos</p>
+          <a class="wa-btn" href="https://wa.me/${wa}?text=${encodeURIComponent('Olá! Tenho interesse no '+c.nome+' '+c.ano+' por '+c.preco+'. Ainda disponível?')}" target="_blank" style="border-radius:var(--radius)">${waIconSVG} WhatsApp</a>
+          <a class="call-btn" href="tel:+${wa}" style="border-radius:var(--radius)">${phoneIconSVG} Ligar agora</a>
+        </div>
+      </div>
+    </div>`;
+  showPage('car-detail');
+}
+
+function showCarDetail(id){
+  const c=DB.carros.find(x=>x.id===id);
+  if(!c)return;
+  const fotos=c.fotos||['🚗'];
+  const legs=c.legendas||[];
+  const wa=DB.empresa.whatsapp||'258840000000';
+  currentGallery=fotos;
+  currentGalleryIndex=0;
+
+  function mediaEl(f,mini=false){
+    if(f&&f.startsWith('http'))return`<img src="${f}" style="width:100%;height:100%;object-fit:${mini?'cover':'contain'};display:block" onerror="this.style.display='none'">`;
+    return`<span style="font-size:${mini?'1.8rem':'5rem'}">${f||'🚗'}</span>`;
+  }
+
+  function buildGallery(){
+    const f=currentGallery[currentGalleryIndex];
+    const total=currentGallery.length;
+    const hasPrev=currentGalleryIndex>0;
+    const hasNext=currentGalleryIndex<total-1;
+    return`
+    <div style="background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);margin-bottom:28px;border:1px solid var(--gray-100)">
+      <div style="position:relative;width:100%;height:380px;background:#f0f4ff;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer" onclick="openLightbox(currentGallery,currentGalleryIndex,${JSON.stringify(legs)})">
+        <div id="gMainImg" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;transition:opacity .25s ease;padding:8px">
+          ${mediaEl(f)}
+        </div>
+        <div style="position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.5);color:white;padding:4px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;backdrop-filter:blur(6px);pointer-events:none">
+          ${currentGalleryIndex+1} / ${total}
+        </div>
+        ${hasPrev?`<button onclick="event.stopPropagation();gNav(-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.18);color:var(--blue);transition:.2s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>`:''}
+        ${hasNext?`<button onclick="event.stopPropagation();gNav(1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.18);color:var(--blue);transition:.2s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>`:''}
+      </div>
+      ${total>1?`
+      <div style="display:flex;gap:8px;padding:12px 14px;overflow-x:auto;background:var(--gray-50);border-top:1px solid var(--gray-100)">
+        ${currentGallery.map((thumb,i)=>`
+          <div onclick="gSetIndex(${i})" style="flex-shrink:0;width:70px;height:52px;border-radius:8px;overflow:hidden;border:2.5px solid ${i===currentGalleryIndex?'var(--blue)':'var(--gray-200)'};cursor:pointer;background:var(--gray-100);display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:${i===currentGalleryIndex?'1':'0.6'}">
+            ${mediaEl(thumb,true)}
+          </div>`).join('')}
+      </div>`:''}
+    </div>`;
+  }
+
+  window.gNav=function(dir){
+    const el=document.getElementById('gMainImg');
+    if(el)el.style.opacity='0';
+    setTimeout(()=>{currentGalleryIndex=Math.max(0,Math.min(currentGallery.length-1,currentGalleryIndex+dir));document.getElementById('galleryWrap').innerHTML=buildGallery();},200);
+  };
+  window.gSetIndex=function(i){
+    const el=document.getElementById('gMainImg');
+    if(el)el.style.opacity='0';
+    setTimeout(()=>{currentGalleryIndex=i;document.getElementById('galleryWrap').innerHTML=buildGallery();},200);
+  };
+
+  document.getElementById('carDetailContent').innerHTML=`
+    <h2 style="font-size:1.85rem;font-weight:800;color:var(--gray-900);margin-bottom:4px;letter-spacing:-0.5px">${c.nome} <span style="color:var(--blue)">${c.ano}</span></h2>
+    <p style="font-size:1.45rem;font-weight:800;color:var(--blue);margin-bottom:20px;letter-spacing:-0.5px">${c.preco}</p>
+    <div id="galleryWrap">${buildGallery()}</div>
+    <div class="car-detail-grid">
+      <div>
+        <p style="font-size:0.72rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px">Ficha Técnica</p>
+        <table class="car-detail-table">
+          <tr><td>Modelo</td><td>${c.nome}</td></tr>
+          <tr><td>Ano</td><td>${c.ano}</td></tr>
+          <tr><td>Quilometragem</td><td>${c.km}</td></tr>
+          <tr><td>Motor</td><td>${c.motor}</td></tr>
+          <tr><td>Cilindrada</td><td>${c.cilindrada||'—'}</td></tr>
+          <tr><td>Câmbio</td><td>${c.cambio}</td></tr>
+          <tr><td>Portas</td><td>${c.portas||'—'}</td></tr>
+          <tr><td>Peso</td><td>${c.peso||'—'}</td></tr>
+          <tr><td>Cor</td><td>${c.cor}</td></tr>
+          <tr><td>Localização</td><td>${c.localizacao||'Maputo'}</td></tr>
+          <tr><td>Estado</td><td><span class="badge ${c.estado==='Disponível'?'badge-green':'badge-amber'}">${c.estado}</span></td></tr>
+          <tr><td>Preço</td><td style="color:var(--blue);font-size:1.05rem">${c.preco}</td></tr>
+        </table>
+        <div style="margin-top:16px;padding:16px;background:var(--gray-50);border-radius:var(--radius);font-size:0.88rem;color:var(--gray-600);line-height:1.75;border-left:3px solid var(--blue)">${c.descricao}</div>
+      </div>
+      <div>
+        <div class="contact-box">
+          <h4>Interessado neste veículo?</h4>
+          <p>Fale connosco agora — resposta em minutos</p>
+          <a class="wa-btn" href="https://wa.me/${wa}?text=${encodeURIComponent('Olá! Tenho interesse no '+c.nome+' '+c.ano+' por '+c.preco+'. Ainda disponível?')}" target="_blank" style="border-radius:var(--radius)">${waIconSVG} WhatsApp</a>
+          <a class="call-btn" href="tel:+${wa}" style="border-radius:var(--radius)">${phoneIconSVG} Ligar agora</a>
+        </div>
+      </div>
+    </div>`;
+  showPage('car-detail');
+}
+
+function changePhoto(el,src){
+  const main=document.getElementById('galleryMain');
+  if(!main)return;
+  if(src.startsWith('http')){main.innerHTML=`<img src="${src}" style="width:100%;height:100%;object-fit:cover">`;}
+  else{main.innerHTML=`<span style="font-size:6rem">${src}</span>`;}
+  document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function renderProducts(){
+  const search=document.getElementById('prodSearch').value.toLowerCase();
+  const cat=document.getElementById('prodCat').value;
+  const grid=document.getElementById('prodsGrid');
+  let prods=DB.produtos.filter(p=>{
+    return(p.nome.toLowerCase().includes(search)||p.categoria.toLowerCase().includes(search))&&(!cat||p.categoria===cat);
+  });
+  if(!prods.length){grid.innerHTML='<p style="color:var(--gray-400);grid-column:1/-1;padding:20px 0">Nenhum produto encontrado.</p>';return;}
+  const wa=DB.empresa.whatsapp||'258840000000';
+  grid.innerHTML=prods.map(p=>{
+    const isImg=p.emoji&&p.emoji.startsWith('http');
+    return`<div class="prod-card">
+      <div class="prod-card-img">${isImg?`<img src="${p.emoji}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:3.5rem">${p.emoji||'❄️'}</span>`}</div>
+      <div class="prod-card-body">
+        <div class="prod-card-cat">${p.categoria}</div>
+        <div class="prod-card-name">${p.nome}</div>
+        <div class="prod-card-desc">${p.descricao}</div>
+        <div class="prod-price">${p.preco}</div>
+        <a class="wa-btn" href="https://wa.me/${wa}?text=${encodeURIComponent('Olá! Tenho interesse no produto: '+p.nome+' por '+p.preco+'. Está disponível?')}" target="_blank" style="font-size:0.84rem;padding:10px 16px;border-radius:var(--radius)">${waIconSVG} Encomendar via WhatsApp</a>
+        ${isImg?`<button onclick="openLightbox(['${p.emoji}'],0,['${p.nome}'])" class="gallery-open-btn" style="width:100%;justify-content:center;margin-top:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg> Ver foto</button>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function getServiceIcon(icon){
+  const icons={
+    wrench:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`,
+    install:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8l3 3 3-3"/><line x1="12" y1="11" x2="12" y2="7"/></svg>`,
+    gas:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V8a2 2 0 012-2h10a2 2 0 012 2v14"/><path d="M17 6h1a2 2 0 012 2v3a2 2 0 01-2 2h-1"/><line x1="3" y1="22" x2="19" y2="22"/><path d="M7 10h6M7 14h6"/></svg>`,
+    clean:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><path d="M8 3v3M12 3v3M16 3v3M8 18v3M12 18v3M16 18v3"/></svg>`,
+    quote:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+    urgent:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  };
+  return icons[icon]||icons.wrench;
+}
+
+function renderServices(){
+  document.getElementById('servicesGrid').innerHTML=DB.servicos.map(s=>`
+    <div class="service-card">
+      <div class="service-icon">${getServiceIcon(s.icon)}</div>
+      <h3>${s.nome}</h3>
+      <p>${s.desc}</p>
+    </div>`).join('');
+}
+
+function renderFaq(){
+  const list=document.getElementById('faqList');
+  if(!list)return;
+  list.innerHTML=DB.faq.map(f=>`
+    <div class="faq-item" id="faq-${f.id}">
+      <div class="faq-question" onclick="toggleFaq(${f.id})">
+        <span class="faq-q-text">${f.q}</span>
+        <div class="faq-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">${f.r}</div></div>
+    </div>`).join('');
+}
+
+function toggleFaq(id){
+  const item=document.getElementById('faq-'+id);
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+function renderReviews(){
+  const stars=n=>'★'.repeat(n)+'☆'.repeat(5-n);
+  document.getElementById('reviewsGrid').innerHTML=DB.avaliacoes.map(r=>`
+    <div class="review-card">
+      <div class="review-stars">${stars(r.estrelas)}</div>
+      <p class="review-text">"${r.texto}"</p>
+      <div class="review-author">${r.nome}</div>
+      <div class="review-role">${r.cargo}</div>
+    </div>`).join('');
+}
+
+function renderLocationInfo(){
+  const e=DB.empresa;
+  const wa=e.whatsapp||'258840000000';
+  document.getElementById('locationInfo').innerHTML=`
+    <div class="location-row"><div class="loc-icon-wrap" style="background:#e0f2fe;color:#0284c7">${pinIconSVG}</div><span>${e.endereco}</span></div>
+    <div class="location-row"><div class="loc-icon-wrap" style="background:var(--blue-light);color:var(--blue)">${mailIconSVG}</div><a href="mailto:${e.email}">${e.email}</a></div>`;
+  // sincronizar blocos de importação
+  const el=id=>document.getElementById(id);
+  if(el('imp_email_block'))el('imp_email_block').href=`mailto:${e.email}`;
+  if(el('imp_email_txt'))el('imp_email_txt').textContent=e.email;
+  if(el('imp_tel_block'))el('imp_tel_block').href=`tel:+${wa}`;
+  if(el('imp_tel_txt'))el('imp_tel_txt').textContent=e.tel;
+  if(el('imp_addr_txt'))el('imp_addr_txt').textContent=e.endereco;
+  if(el('imp_hora_semana'))el('imp_hora_semana').textContent=`${e.horaAbertura||'08:00'} — ${e.horaFecho||'17:00'}`;
+  if(e.logo){
+    document.getElementById('navLogoImg').innerHTML=`<img src="${e.logo}" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`;
+    document.getElementById('heroLogoBox').innerHTML=`<img src="${e.logo}" style="width:100%;height:100%;object-fit:cover;border-radius:18px">`;
+  }
+}
+
+function previewLogo(){
+  const url=document.getElementById('e_logo').value;
+  const prev=document.getElementById('logoPreview');
+  if(url){document.getElementById('logoImg').src=url;prev.style.display='block';}
+  else{prev.style.display='none';}
+}
+
+function renderAdminCars(){
+  document.getElementById('carsTableBody').innerHTML=DB.carros.map(c=>{
+    const f=c.fotos&&c.fotos[0];
+    const img=f&&f.startsWith('http')?`<img src="${f}" style="width:40px;height:32px;object-fit:cover;border-radius:6px">`:(f||'🚗');
+    return`<tr><td style="font-size:1.4rem">${img}</td><td><strong>${c.nome}</strong></td><td>${c.ano}</td><td style="color:var(--blue);font-weight:700">${c.preco}</td><td><span class="badge ${c.estado==='Disponível'?'badge-green':'badge-amber'}">${c.estado}</span></td><td><div class="tbl-actions"><button class="btn-edit" onclick="openModal('car',${c.id})">Editar</button><button class="btn-danger" onclick="deleteCar(${c.id})">Remover</button></div></td></tr>`;
+  }).join('');
+}
+function renderAdminProds(){
+  document.getElementById('prodsTableBody').innerHTML=DB.produtos.map(p=>`
+    <tr><td><strong>${p.nome}</strong></td><td><span class="badge badge-blue">${p.categoria}</span></td><td style="color:var(--blue);font-weight:700">${p.preco}</td><td><div class="tbl-actions"><button class="btn-edit" onclick="openModal('prod',${p.id})">Editar</button><button class="btn-danger" onclick="deleteProd(${p.id})">Remover</button></div></td></tr>`).join('');
+}
+function renderAdminServs(){
+  document.getElementById('servsTableBody').innerHTML=DB.servicos.map(s=>`
+    <tr><td style="color:var(--blue)">${getServiceIcon(s.icon)}</td><td><strong>${s.nome}</strong></td><td style="font-size:0.84rem;color:var(--gray-500)">${s.desc}</td><td><div class="tbl-actions"><button class="btn-edit" onclick="openModal('serv',${s.id})">Editar</button><button class="btn-danger" onclick="deleteServ(${s.id})">Remover</button></div></td></tr>`).join('');
+}
+function renderAdminReviews(){
+  const stars=n=>'★'.repeat(n);
+  document.getElementById('reviewsTableBody').innerHTML=DB.avaliacoes.map(r=>`
+    <tr><td><strong>${r.nome}</strong><br><span style="font-size:0.76rem;color:var(--gray-400)">${r.cargo}</span></td><td style="font-size:0.84rem;color:var(--gray-600)">${r.texto}</td><td style="color:#d97706">${stars(r.estrelas)}</td><td><div class="tbl-actions"><button class="btn-edit" onclick="openModal('review',${r.id})">Editar</button><button class="btn-danger" onclick="deleteReview(${r.id})">Remover</button></div></td></tr>`).join('');
+}
+function renderStatCards(){
+  document.getElementById('statCards').innerHTML=`
+    <div class="stat-card"><div class="stat-num">${DB.carros.length}</div><div class="stat-label">Veículos</div></div>
+    <div class="stat-card"><div class="stat-num">${DB.carros.filter(c=>c.estado==='Disponível').length}</div><div class="stat-label">Disponíveis</div></div>
+    <div class="stat-card"><div class="stat-num">${DB.produtos.length}</div><div class="stat-label">Produtos</div></div>
+    <div class="stat-card"><div class="stat-num">${DB.avaliacoes.length}</div><div class="stat-label">Avaliações</div></div>`;
+}
+function renderEmpresaForm(){
+  const e=DB.empresa;
+  ['e_nome','e_logo','e_tel','e_wa','e_inst','e_email','e_end'].forEach(id=>{
+    const map={e_nome:'nome',e_logo:'logo',e_tel:'tel',e_wa:'whatsapp',e_inst:'instagram',e_email:'email',e_end:'endereco'};
+    document.getElementById(id).value=e[map[id]]||'';
+  });
+  if(document.getElementById('e_hora1'))document.getElementById('e_hora1').value=e.horaAbertura||'08:00';
+  if(document.getElementById('e_hora2'))document.getElementById('e_hora2').value=e.horaFecho||'17:00';
+  if(e.logo){document.getElementById('logoImg').src=e.logo;document.getElementById('logoPreview').style.display='block';}
+}
+function saveEmpresa(){
+  const map={e_nome:'nome',e_logo:'logo',e_tel:'tel',e_wa:'whatsapp',e_inst:'instagram',e_email:'email',e_end:'endereco'};
+  Object.entries(map).forEach(([id,key])=>{DB.empresa[key]=document.getElementById(id).value;});
+  if(document.getElementById('e_hora1'))DB.empresa.horaAbertura=document.getElementById('e_hora1').value;
+  if(document.getElementById('e_hora2'))DB.empresa.horaFecho=document.getElementById('e_hora2').value;
+  renderLocationInfo();showToast('Dados da empresa guardados!');
+}
+
+const carForm=()=>`
+  <div class="form-group"><label>Nome do veículo</label><input type="text" id="m_nome" placeholder="Ex: Toyota Corolla"></div>
+  <div class="form-row"><div class="form-group"><label>Ano</label><input type="number" id="m_ano" placeholder="2020"></div><div class="form-group"><label>Preço</label><input type="text" id="m_preco" placeholder="Ex: 450.000 MT"></div></div>
+  <div class="form-row"><div class="form-group"><label>Quilometragem</label><input type="text" id="m_km" placeholder="Ex: 50.000 km"></div><div class="form-group"><label>Motor</label><input type="text" id="m_motor" placeholder="Ex: 1.6L Gasolina"></div></div>
+  <div class="form-row"><div class="form-group"><label>Câmbio</label><select id="m_cambio"><option>Automático</option><option>Manual</option></select></div><div class="form-group"><label>Estado</label><select id="m_estado"><option>Disponível</option><option>Reservado</option><option>Vendido</option></select></div></div>
+  <div class="form-row"><div class="form-group"><label>Portas</label><input type="text" id="m_portas" placeholder="Ex: 4 portas"></div><div class="form-group"><label>Peso</label><input type="text" id="m_peso" placeholder="Ex: 1.350 kg"></div></div>
+  <div class="form-row"><div class="form-group"><label>Cilindrada</label><input type="text" id="m_cilindrada" placeholder="Ex: 1598 cc"></div><div class="form-group"><label>Localização</label><input type="text" id="m_localizacao" placeholder="Ex: Maputo"></div></div>
+  <div class="form-group"><label>Cor</label><input type="text" id="m_cor" placeholder="Ex: Branco Pérola"></div>
+  <div class="form-group">
+    <label>Fotos (links https:// separados por vírgula)</label>
+    <div class="foto-upload-area">
+      <input type="text" id="m_fotos" placeholder="https://link1.jpg, https://link2.jpg" oninput="previewFotos()" style="border:none;outline:none;width:100%;font-family:inherit;font-size:0.9rem;color:var(--gray-800);background:transparent">
+      <div class="foto-preview-grid" id="fotosPreview"></div>
+    </div>
+  </div>
+  <div class="form-group"><label>Descrição</label><textarea id="m_desc" style="min-height:80px"></textarea></div>
+  <button class="btn btn-blue btn-full" onclick="saveCar()">Guardar veículo</button>`;
+
+const prodForm=()=>`
+  <div class="form-group"><label>Nome do produto</label><input type="text" id="m_nome"></div>
+  <div class="form-row"><div class="form-group"><label>Categoria</label><select id="m_cat"><option>Ar-Condicionado</option><option>Acessórios</option><option>Materiais</option><option>Equipamentos</option></select></div><div class="form-group"><label>Preço</label><input type="text" id="m_preco" placeholder="Ex: 35.000 MT"></div></div>
+  <div class="form-group">
+    <label>Foto (link https://) ou emoji</label>
+    <div class="foto-upload-area">
+      <input type="text" id="m_emoji" placeholder="https://... ou ❄️" oninput="previewProdFoto()" style="border:none;outline:none;width:100%;font-family:inherit;font-size:0.9rem;color:var(--gray-800);background:transparent">
+      <div id="prodFotoPreview" style="margin-top:8px"></div>
+    </div>
+  </div>
+  <div class="form-group"><label>Descrição</label><textarea id="m_desc" style="min-height:70px"></textarea></div>
+  <button class="btn btn-blue btn-full" onclick="saveProd()">Guardar produto</button>`;
+
+const servForm=()=>`
+  <div class="form-row"><div class="form-group"><label>Ícone</label><select id="m_icon"><option value="wrench">🔧 Reparação</option><option value="install">🖥️ Instalação</option><option value="gas">🧪 Gás</option><option value="clean">🧹 Limpeza</option><option value="quote">📋 Orçamento</option><option value="urgent">⏱️ Urgência</option></select></div><div class="form-group"><label>Nome do serviço</label><input type="text" id="m_nome"></div></div>
+  <div class="form-group"><label>Descrição</label><textarea id="m_desc" style="min-height:70px"></textarea></div>
+  <button class="btn btn-blue btn-full" onclick="saveServ()">Guardar serviço</button>`;
+
+const reviewForm=()=>`
+  <div class="form-row"><div class="form-group"><label>Nome do cliente</label><input type="text" id="m_nome"></div><div class="form-group"><label>Cargo / Profissão</label><input type="text" id="m_cargo"></div></div>
+  <div class="form-group"><label>Avaliação</label><textarea id="m_texto" style="min-height:70px"></textarea></div>
+  <div class="form-group"><label>Estrelas (1-5)</label><input type="number" id="m_stars" min="1" max="5" value="5"></div>
+  <button class="btn btn-blue btn-full" onclick="saveReview()">Guardar avaliação</button>`;
+
+function previewFotos(){
+  const val=document.getElementById('m_fotos').value;
+  const links=val.split(',').map(s=>s.trim()).filter(Boolean);
+  const grid=document.getElementById('fotosPreview');
+  if(!grid)return;
+  grid.innerHTML=links.map((f,i)=>{
+    const isImg=f.startsWith('http');
+    return`<div class="foto-preview-item">
+      ${isImg?`<img src="${f}" onerror="this.style.opacity='0.3'">`:`<span>${f}</span>`}
+    </div>`;
+  }).join('');
+}
+
+function previewProdFoto(){
+  const val=document.getElementById('m_emoji').value.trim();
+  const prev=document.getElementById('prodFotoPreview');
+  if(!prev)return;
+  if(val.startsWith('http')){
+    prev.innerHTML=`<img src="${val}" style="height:80px;border-radius:8px;border:1px solid var(--gray-200);object-fit:cover" onerror="this.style.opacity='0.3'">`;
+  } else if(val){
+    prev.innerHTML=`<span style="font-size:2.5rem">${val}</span>`;
+  } else {
+    prev.innerHTML='';
+  }
+}
+
+function openModal(type,id=null){
+  editModal={type,id};
+  const titles={car:'veículo',prod:'produto',serv:'serviço',review:'avaliação'};
+  document.getElementById('modalTitle').textContent=(id?'Editar ':'Adicionar ')+titles[type];
+  document.getElementById('modalBody').innerHTML={car:carForm,prod:prodForm,serv:servForm,review:reviewForm}[type]();
+  if(id){
+    if(type==='car'){const c=DB.carros.find(x=>x.id===id);if(c){document.getElementById('m_nome').value=c.nome;document.getElementById('m_ano').value=c.ano;document.getElementById('m_preco').value=c.preco;document.getElementById('m_km').value=c.km;document.getElementById('m_motor').value=c.motor;document.getElementById('m_cilindrada').value=c.cilindrada||'';document.getElementById('m_cambio').value=c.cambio;document.getElementById('m_estado').value=c.estado;document.getElementById('m_portas').value=c.portas||'';document.getElementById('m_peso').value=c.peso||'';document.getElementById('m_cor').value=c.cor;document.getElementById('m_localizacao').value=c.localizacao||'';document.getElementById('m_fotos').value=(c.fotos||[]).join(', ');document.getElementById('m_desc').value=c.descricao;previewFotos();}}
+    if(type==='prod'){const p=DB.produtos.find(x=>x.id===id);if(p){document.getElementById('m_nome').value=p.nome;document.getElementById('m_cat').value=p.categoria;document.getElementById('m_preco').value=p.preco;document.getElementById('m_emoji').value=p.emoji||'';document.getElementById('m_desc').value=p.descricao;previewProdFoto();}}
+    if(type==='serv'){const s=DB.servicos.find(x=>x.id===id);if(s){document.getElementById('m_icon').value=s.icon;document.getElementById('m_nome').value=s.nome;document.getElementById('m_desc').value=s.desc;}}
+    if(type==='review'){const r=DB.avaliacoes.find(x=>x.id===id);if(r){document.getElementById('m_nome').value=r.nome;document.getElementById('m_cargo').value=r.cargo;document.getElementById('m_texto').value=r.texto;document.getElementById('m_stars').value=r.estrelas;}}
+  }
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
+
+function saveCar(){
+  const fotos=document.getElementById('m_fotos').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const data={nome:document.getElementById('m_nome').value,ano:parseInt(document.getElementById('m_ano').value),preco:document.getElementById('m_preco').value,km:document.getElementById('m_km').value,motor:document.getElementById('m_motor').value,cilindrada:document.getElementById('m_cilindrada').value,cambio:document.getElementById('m_cambio').value,estado:document.getElementById('m_estado').value,portas:document.getElementById('m_portas').value,peso:document.getElementById('m_peso').value,cor:document.getElementById('m_cor').value,localizacao:document.getElementById('m_localizacao').value,descricao:document.getElementById('m_desc').value,fotos:fotos.length?fotos:['🚗']};
+  if(!data.nome){showToast('Preencha o nome do veículo');return;}
+  if(editModal.id){Object.assign(DB.carros.find(c=>c.id===editModal.id),data);showToast('Veículo actualizado!');}
+  else{data.id=Date.now();DB.carros.push(data);showToast('Veículo adicionado!');}
+  closeModal();renderAdminCars();renderStatCards();
+}
+function saveProd(){
+  const data={nome:document.getElementById('m_nome').value,categoria:document.getElementById('m_cat').value,preco:document.getElementById('m_preco').value,emoji:document.getElementById('m_emoji').value||'❄️',descricao:document.getElementById('m_desc').value};
+  if(!data.nome){showToast('Preencha o nome');return;}
+  if(editModal.id){Object.assign(DB.produtos.find(p=>p.id===editModal.id),data);showToast('Produto actualizado!');}
+  else{data.id=Date.now();DB.produtos.push(data);showToast('Produto adicionado!');}
+  closeModal();renderAdminProds();renderStatCards();
+}
+function saveServ(){
+  const data={icon:document.getElementById('m_icon').value||'🔧',nome:document.getElementById('m_nome').value,desc:document.getElementById('m_desc').value};
+  if(!data.nome){showToast('Preencha o nome');return;}
+  if(editModal.id){Object.assign(DB.servicos.find(s=>s.id===editModal.id),data);showToast('Serviço actualizado!');}
+  else{data.id=Date.now();DB.servicos.push(data);showToast('Serviço adicionado!');}
+  closeModal();renderAdminServs();renderServices();
+}
+function saveReview(){
+  const data={nome:document.getElementById('m_nome').value,cargo:document.getElementById('m_cargo').value,texto:document.getElementById('m_texto').value,estrelas:parseInt(document.getElementById('m_stars').value)||5};
+  if(!data.nome){showToast('Preencha o nome');return;}
+  if(editModal.id){Object.assign(DB.avaliacoes.find(r=>r.id===editModal.id),data);showToast('Avaliação actualizada!');}
+  else{data.id=Date.now();DB.avaliacoes.push(data);showToast('Avaliação adicionada!');}
+  closeModal();renderAdminReviews();renderReviews();
+}
+function deleteCar(id){if(confirm('Remover este veículo?')){DB.carros=DB.carros.filter(c=>c.id!==id);renderAdminCars();renderStatCards();showToast('Veículo removido');}}
+function deleteProd(id){if(confirm('Remover este produto?')){DB.produtos=DB.produtos.filter(p=>p.id!==id);renderAdminProds();renderStatCards();showToast('Produto removido');}}
+function deleteServ(id){if(confirm('Remover este serviço?')){DB.servicos=DB.servicos.filter(s=>s.id!==id);renderAdminServs();renderServices();showToast('Serviço removido');}}
+function deleteReview(id){if(confirm('Remover esta avaliação?')){DB.avaliacoes=DB.avaliacoes.filter(r=>r.id!==id);renderAdminReviews();renderReviews();showToast('Avaliação removida');}}
+
+function switchAdminTab(tab){
+  document.querySelectorAll('.admin-tab').forEach((t,i)=>{const tabs=['carros','produtos','servicos','avaliacoes','empresa'];t.classList.toggle('active',tabs[i]===tab)});
+  document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('admin-'+tab).classList.add('active');
+  if(tab==='empresa')renderEmpresaForm();
+}
+
+function showPage(page, pushState=true){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  window.scrollTo(0,0);
+  if(page==='cars')renderCars();
+  if(page==='loja')renderProducts();
+  if(page==='frio')renderServices();
+  if(page==='home'){renderReviews();renderLocationInfo();renderFaq();}
+  if(page==='admin'){renderAdminCars();renderAdminProds();renderAdminServs();renderAdminReviews();renderStatCards();}
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('globalFooter').style.display=page==='admin'?'none':'block';
+  if(pushState) try{history.pushState({page}, '', '#'+page);}catch(e){}
+  if(page==='home') triggerHeroAnim();
+}
+
+function triggerHeroAnim(){
+  const heroTop=document.getElementById('heroTop');
+  const animated=['hero-anim-logo','hero-anim-h1','hero-anim-p','hero-anim-card-1','hero-anim-card-2','hero-anim-card-3'];
+  const statsBar=document.querySelector('.hero-anim-stats');
+  const allEls=[...animated.map(c=>heroTop.querySelector('.'+c)),statsBar].filter(Boolean);
+  allEls.forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation='';});
+}
+
+window.addEventListener('popstate',function(e){
+  const page=(e.state&&e.state.page)||'home';
+  showPage(page, false);
+});
+
+try{history.replaceState({page:'home'}, '', '#home');}catch(e){}
+
+function scrollToImport(){
+  showPage('home', true);
+  setTimeout(()=>{
+    const sec=document.getElementById('importSection');
+    if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});
+  },100);
+}
+
+function submitImport(){
+  const nome=document.getElementById('imp_nome').value;
+  const tel=document.getElementById('imp_tel').value;
+  const marca=document.getElementById('imp_marca').value;
+  const modelo=document.getElementById('imp_modelo').value;
+  if(!nome||!tel||!marca){showToast('Preencha nome, telefone e marca');return;}
+  const wa=DB.empresa.whatsapp||'258840000000';
+  const email=document.getElementById('imp_email').value;
+  const ano=document.getElementById('imp_ano').value;
+  const origem=document.getElementById('imp_origem').value;
+  const orc=document.getElementById('imp_orcamento').value;
+  const obs=document.getElementById('imp_obs').value;
+  const msg=`Olá! Gostaria de solicitar a importação de uma viatura.\n\nNome: ${nome}\nTelefone: ${tel}\nEmail: ${email||'—'}\nVeículo: ${marca} ${modelo}\nAno: ${ano||'—'}\nOrigem: ${origem||'Qualquer'}\nOrçamento: ${orc||'—'}\n${obs?'Obs: '+obs:''}`;
+  window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`,'_blank');
+  document.getElementById('importSuccess').style.display='block';
+  setTimeout(()=>document.getElementById('importSuccess').style.display='none',5000);
+}
+
+function scrollToFaq(){
+  showPage('home', true);
+  setTimeout(()=>{
+    const faq=document.querySelector('.faq-section');
+    if(faq)faq.scrollIntoView({behavior:'smooth',block:'start'});
+  },100);
+}
+
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
+
+function submitForm(){
+  const nome=document.getElementById('f_nome').value;
+  const tel=document.getElementById('f_tel').value;
+  const serv=document.getElementById('f_servico').value;
+  if(!nome||!tel||!serv){showToast('Preencha todos os campos obrigatórios');return;}
+  const wa=DB.empresa.whatsapp||'258840000000';
+  const desc=document.getElementById('f_desc').value;
+  const end=document.getElementById('f_end').value;
+  const msg=`Olá! Sou ${nome}.\nServiço: ${serv}\nEndereço: ${end}\n${desc?'Problema: '+desc:''}`;
+  window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`,'_blank');
+  document.getElementById('formSuccess').style.display='block';
+  setTimeout(()=>document.getElementById('formSuccess').style.display='none',5000);
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+renderCars();renderProducts();renderServices();renderReviews();renderLocationInfo();renderFaq();
+</script>
+</body>
+</html>
